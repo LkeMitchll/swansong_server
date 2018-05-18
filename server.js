@@ -51,13 +51,14 @@ app.get('/recent_tracks/total/:from.:to?', (req, res) => {
   })
 })
 
-app.get('/weekly_album_chart/total', (req, res) => {
+app.get('/weekly_album_chart/total/:from.:to?', (req, res) => {
   var params = {
     method: 'user.getweeklyalbumchart',
     api_key: API_KEY,
     user: USERNAME,
     format: 'json'
   }
+  params = merge(params, req.params)
 
   request({url: URL, qs: params}, function(err, response, body){
     if (err) {
@@ -70,13 +71,14 @@ app.get('/weekly_album_chart/total', (req, res) => {
   })
 })
 
-app.get('/weekly_artist_chart/total', (req, res) => {
+app.get('/weekly_artist_chart/total/:from.:to?', (req, res) => {
   var params = {
     method: 'user.getweeklyartistchart',
     api_key: API_KEY,
     user: USERNAME,
     format: 'json'
   }
+  params = merge(params, req.params)
 
   request({url: URL, qs: params}, function(err, response, body){
     if (err) {
