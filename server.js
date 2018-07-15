@@ -7,7 +7,7 @@ const cors = require('cors')
 const merge = require('merge-objects')
 
 const app = express()
-const PORT = 3333
+const PORT = process.env.PORT || 5000
 const URL = 'http://ws.audioscrobbler.com/2.0/'
 const API_KEY = process.env.LASTFM_API_KEY
 const USERNAME = 'luke--mitchell'
